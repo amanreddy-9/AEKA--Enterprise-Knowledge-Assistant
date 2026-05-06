@@ -1,147 +1,166 @@
-# 🚀 AEKA — Enterprise Knowledge Assistant
-
-AEKA is a **full-stack, AI-powered enterprise knowledge platform** designed to help organizations intelligently analyze, retrieve, and interact with internal documents using **open-source Large Language Models** and **semantic search technologies**.
-
-Modern enterprises generate massive amounts of internal knowledge every day — technical documents, project reports, SOPs, onboarding guides, compliance manuals, architecture specifications, client deliverables, and operational workflows. Unfortunately, most of this information remains scattered across systems and difficult to retrieve efficiently.
-
-✨ AEKA solves this challenge through a modern **Retrieval-Augmented Generation (RAG)** pipeline that transforms enterprise documentation into a conversational AI experience.
-
-Instead of manually searching through hundreds of pages, users can simply ask:
-
-* 📄 *“Summarize the project architecture”*
-* 🔌 *“List all APIs used”*
-* ⚙️ *“Explain the deployment workflow”*
-* 🧠 *“What technologies are used in this system?”*
-
-The platform semantically searches internal documents, retrieves the most relevant contextual information, and generates grounded responses using multiple open-source AI models.
+# AEKA — Enterprise Knowledge Assistant
+### React + FastAPI + ChromaDB + Ollama
 
 ---
 
-# 🌐 Why AEKA Matters
+## Project Structure
 
-AEKA is specifically designed for **service-based companies and enterprises** that require:
-
-✅ Proprietary internal document analysis
-✅ Secure AI infrastructure
-✅ Open-source deployment
-✅ Scalable enterprise architecture
-✅ Privacy-focused AI systems
-✅ Full ownership of organizational data
-
-Unlike cloud-dependent AI tools, AEKA can run completely **on-premise** using local LLM inference through Ollama, ensuring sensitive enterprise data never leaves company infrastructure.
-
----
-
-# ✨ Key Features
-
-🔹 Intelligent PDF & DOCX ingestion
-🔹 Semantic vector search with ChromaDB
-🔹 Conversational AI interface
-🔹 Multi-model LLM support
-🔹 Retrieval-Augmented Generation (RAG)
-🔹 REST API architecture
-🔹 Enterprise knowledge repository
-🔹 Real-time contextual responses
-🔹 Fully open-source deployment pipeline
-🔹 Modern enterprise-grade UI/UX
-
----
-
-# 🖥️ Tech Stack
-
-## 🎨 Frontend
-
-Built using modern JavaScript technologies:
-
-* ⚛️ React.js
-* 🟨 JavaScript
-* ⚡ Vite
-* 🎯 Tailwind CSS
-* 🔗 Axios
-* ✨ Custom animations & enterprise UI systems
-
-The frontend delivers a sleek conversational dashboard with animated AI branding, repository statistics, model selection, contextual querying, and responsive enterprise design.
+```
+AEKA/
+├── backend/
+│   ├── main.py                  ← FastAPI app (REST API)
+│   ├── document_processor.py    ← PDF + DOCX extraction
+│   ├── vector_store.py          ← ChromaDB wrapper
+│   ├── llm_handler.py           ← Ollama LLM integration
+│   └── requirements.txt
+├── frontend/
+│   ├── src/
+│   │   ├── pages/
+│   │   │   ├── ChatPage.jsx     ← Main chat interface
+│   │   │   └── KnowledgePage.jsx← Document repository
+│   │   ├── components/
+│   │   │   ├── FileUpload.jsx   ← Drag & drop uploader
+│   │   │   └── ModelSelector.jsx← 4-model dropdown
+│   │   ├── hooks/
+│   │   │   └── useSpeech.js     ← TTS (American English female)
+│   │   └── utils/
+│   │       └── api.js           ← Axios REST client
+│   ├── package.json
+│   └── vite.config.js
+├── start.bat                    ← One-click startup (Windows)
+└── README.md
+```
 
 ---
 
-## ⚙️ Backend
+## Prerequisites
 
-Powered by a scalable Python-based AI infrastructure:
+Install these once:
 
-* 🐍 Python
-* 🚀 FastAPI
-* ⚡ Uvicorn
-* 🔌 REST APIs
-* 🧩 LangChain Text Splitters
-* 📑 PDF & DOCX processing pipelines
+| Tool | Version | Download |
+|------|---------|----------|
+| Python | 3.11+ | https://python.org/downloads |
+| Node.js | 18+ | https://nodejs.org |
+| Ollama | Latest | https://ollama.com/download |
 
-The backend handles document processing, chunking, vector embedding workflows, semantic retrieval, and LLM orchestration.
-
----
-
-# 🧠 AI & Vector Infrastructure
-
-AEKA integrates multiple open-source AI systems:
-
-* 🗂️ ChromaDB (Vector Database)
-* 🤖 Ollama (Local LLM orchestration)
-* 🧠 Mistral
-* 🦙 Llama 3
-* 💡 Phi-3
-* 💎 Gemma
-
-This architecture enables enterprises to deploy powerful AI systems entirely using open-source technologies while maintaining scalability and flexibility.
+> ⚠️ When installing Python: check **"Add Python to PATH"**
+> ⚠️ When installing Node.js: leave all defaults checked
 
 ---
 
-# 🔄 How AEKA Works
+## Setup (Do Once)
 
-### 📤 Step 1 — Upload Documents
+### Step 1 — Backend Setup
 
-Users upload enterprise PDFs and DOCX files.
+Open VS Code terminal (`Ctrl + `` `) and run:
 
-### ✂️ Step 2 — Intelligent Processing
+```bash
+cd backend
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+```
 
-The backend extracts and chunks document content.
+Expected output: lots of install messages, ending without errors.
 
-### 🧬 Step 3 — Semantic Embedding
+### Step 2 — Frontend Setup
 
-Embeddings are generated and stored inside ChromaDB.
+Open a second terminal and run:
 
-### 🔍 Step 4 — Semantic Retrieval
+```bash
+cd frontend
+npm install
+```
 
-User queries are matched against contextual vectors.
+Expected output: `added XXX packages`
 
-### 🤖 Step 5 — AI Response Generation
+### Step 3 — Pull an LLM Model
 
-Open-source LLMs generate grounded, context-aware responses.
+In any terminal:
 
-### 💬 Step 6 — Conversational Experience
+```bash
+ollama pull mistral
+```
 
-Results are delivered through an interactive enterprise AI interface.
-
----
-
-# 🏢 Enterprise Impact
-
-AEKA demonstrates how organizations can build secure, scalable, and production-ready AI assistants without relying on proprietary cloud ecosystems.
-
-It combines:
-
-* 💻 Full-stack engineering
-* 🧠 Open-source AI infrastructure
-* 🗂️ Vector databases
-* 🔎 Semantic retrieval
-* 🔌 REST API systems
-* 🤖 Multi-model orchestration
-* 🎨 Modern frontend architecture
-
-into a unified enterprise-grade document intelligence platform.
+This downloads ~4 GB. Do it once. For a lighter option:
+```bash
+ollama pull phi3
+```
 
 ---
 
-# 🌟 Final Vision
+## Running the App (Every Time)
 
-AEKA is more than a chatbot.
+You need **3 terminals** running simultaneously:
 
-It is a complete **AI-powered enterprise knowledge ecosystem** built for the future of intelligent organizations — enabling faster knowledge discovery, smarter workflows, and secure enterprise AI adoption through fully open-source technologies.
+### Terminal 1 — Ollama
+```bash
+ollama serve
+```
+Leave it running. You'll see: `Listening on 127.0.0.1:11434`
+
+### Terminal 2 — FastAPI Backend
+```bash
+cd backend
+venv\Scripts\activate
+uvicorn main:app --reload --port 8000
+```
+Leave it running. You'll see: `Uvicorn running on http://0.0.0.0:8000`
+
+### Terminal 3 — React Frontend
+```bash
+cd frontend
+npm run dev
+```
+Leave it running. You'll see: `Local: http://localhost:5173`
+
+### Open the App
+Go to: **http://localhost:5173**
+
+> 💡 **Shortcut**: Double-click `start.bat` — it opens all 3 terminals automatically and launches the browser.
+
+---
+
+## Using AEKA
+
+1. **Upload Documents** — Click "Upload" in the top bar → drag PDF/DOCX files → click "Process"
+2. **Ask Questions** — Type in the chat box, press Enter
+3. **Choose Mode** — "From Documents" uses your knowledge base; "General Knowledge" uses the LLM directly
+4. **Select Model** — Choose from Mistral / Llama 3 / Phi-3 / Gemma in the sidebar dropdown
+5. **Read Aloud** — Click the 🔊 "Read" button under any answer for TTS in American English (female voice)
+6. **View Sources** — Click "X sources" button to see which document chunks were used
+7. **Knowledge Repository** — Click the docs/chunks counter in the header to view all ingested documents
+
+---
+
+## API Endpoints
+
+The backend exposes a full REST API at `http://localhost:8000`:
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/health` | System + Ollama status |
+| POST | `/documents/upload` | Upload PDF/DOCX files |
+| GET | `/documents` | List all documents |
+| GET | `/documents/stats` | Doc + chunk counts |
+| DELETE | `/documents/{filename}` | Remove a document |
+| DELETE | `/documents` | Clear all |
+| POST | `/chat` | Send a query, get an answer |
+| GET | `/models` | List available LLM models |
+
+Interactive API docs: **http://localhost:8000/docs**
+
+---
+
+## Troubleshooting
+
+| Problem | Fix |
+|---------|-----|
+| `venv\Scripts\activate` error | Run: `Set-ExecutionPolicy RemoteSigned -Scope CurrentUser` |
+| Ollama offline badge | Start `ollama serve` in a terminal |
+| Model not found | Run `ollama pull mistral` |
+| Port 8000 in use | Change to `--port 8001` and update `vite.config.js` proxy target |
+| Port 5173 in use | Vite auto-picks next available port |
+| CORS error in browser | Make sure backend is on port 8000 |
+| No text extracted from PDF | PDF may be scanned/image-based — only text PDFs are supported |
+| Slow responses | Switch to `phi3` model in the dropdown |
